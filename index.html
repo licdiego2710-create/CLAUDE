@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVLuminio | Cotizador Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="hero card">
+      <p class="eyebrow">EVLuminio · Guadalajara & Zapopan</p>
+      <h1>Cotizador interactivo de aluminio y cristal</h1>
+      <p>Diseña tu ventana, puerta, cancel o barandal con acabados premium y recibe una cotización estimada al instante.</p>
+      <ul>
+        <li>Respuesta inmediata</li>
+        <li>Acabados residenciales y comerciales</li>
+        <li>Envío directo por WhatsApp</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <form id="quoteForm" class="form-grid">
+        <label>
+          Tipo de producto
+          <select id="productType" name="productType" required>
+            <option value="ventana">Ventana</option>
+            <option value="puerta">Puerta</option>
+            <option value="cancel">Cancel de baño</option>
+            <option value="barandal">Barandal</option>
+          </select>
+        </label>
+
+        <label>
+          Ancho (m)
+          <input id="width" name="width" type="number" step="0.01" min="0.3" value="1.2" required />
+        </label>
+
+        <label>
+          Alto (m)
+          <input id="height" name="height" type="number" step="0.01" min="0.3" value="1.2" required />
+        </label>
+
+        <label>
+          Color de aluminio
+          <select id="color" name="color" required>
+            <option value="natural">Natural</option>
+            <option value="blanco">Blanco</option>
+            <option value="negro">Negro mate</option>
+            <option value="champagne">Champagne</option>
+            <option value="madera">Imitación madera</option>
+          </select>
+        </label>
+
+        <label>
+          Tipo de cristal
+          <select id="glass" name="glass" required>
+            <option value="claro6">Claro 6mm</option>
+            <option value="tintex6">Tintex 6mm</option>
+            <option value="templado9">Templado 9mm</option>
+            <option value="laminado6">Laminado 6+6</option>
+          </select>
+        </label>
+
+        <label>
+          Instalación
+          <select id="installation" name="installation" required>
+            <option value="incluida">Incluida</option>
+            <option value="sin">Sin instalación</option>
+          </select>
+        </label>
+
+        <label>
+          Ubicación
+          <select id="location" name="location" required>
+            <option value="gdl-centro">Guadalajara centro</option>
+            <option value="gdl-periferia">Guadalajara periferia</option>
+            <option value="zapopan-centro">Zapopan centro</option>
+            <option value="zapopan-norte">Zapopan norte</option>
+          </select>
+        </label>
+
+        <label class="full-width">
+          Comentarios adicionales
+          <textarea id="notes" name="notes" rows="3" placeholder="Ej. con mosquitero, color especial, urgencia de entrega..."></textarea>
+        </label>
+      </form>
+    </section>
+
+    <section class="card summary" id="summaryCard">
+      <div class="summary-header">
+        <h2>Resumen de cotización</h2>
+        <span class="badge">Estimado</span>
+      </div>
+      <div class="price" id="estimatedPrice">$0 MXN</div>
+      <div class="meta" id="metaInfo">0.00 m² · 1 pieza</div>
+
+      <div class="breakdown" id="breakdown"></div>
+
+      <button id="whatsappBtn" class="cta">Enviar pedido por WhatsApp</button>
+      <p class="caption">*Precio de referencia, sujeto a visita y validación técnica.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -128,7 +128,7 @@ def play_round(category: str, round_num: int) -> bool:
     return 0
 
 
-CATEGORIES = [
+PRESET_CATEGORIES = [
     "Animales salvajes",
     "Películas famosas",
     "Países del mundo",
@@ -137,7 +137,51 @@ CATEGORIES = [
     "Comidas del mundo",
     "Monumentos famosos",
     "Deportes",
+    "Superhéroes de Marvel",
+    "Canciones de los 80s",
+    "Videojuegos clásicos",
+    "Científicos famosos",
 ]
+
+
+def choose_category() -> str | None:
+    """Muestra el menú de categorías y devuelve la elegida (o None para salir)."""
+    print(f"\n{c('bold', '  ¿Qué categoría quieres jugar?')}\n")
+
+    for i, cat in enumerate(PRESET_CATEGORIES, 1):
+        num = c("cyan", f"  {i:>2}.")
+        print(f"{num} {cat}")
+
+    print(f"\n  {c('yellow', '  C.')} Escribir categoría personalizada")
+    print(f"  {c('dim',    '  Q.')} Salir del juego")
+
+    print(f"\n  {c('bold', 'Tu elección:')} ", end="")
+    try:
+        choice = input().strip()
+    except (EOFError, KeyboardInterrupt):
+        return None
+
+    if choice.lower() == 'q':
+        return None
+
+    if choice.lower() == 'c':
+        print(f"\n  {c('bold', 'Escribe tu categoría:')} ", end="")
+        try:
+            custom = input().strip()
+        except (EOFError, KeyboardInterrupt):
+            return None
+        if not custom:
+            print(c("red", "  Categoría vacía, volviendo al menú."))
+            return choose_category()
+        return custom
+
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(PRESET_CATEGORIES):
+            return PRESET_CATEGORIES[idx]
+
+    print(c("red", "  Opción no válida, intenta de nuevo."))
+    return choose_category()
 
 
 def main():
@@ -148,6 +192,7 @@ def main():
 
   Claude elige algo en secreto y te da pistas.
   ¡Adivina con pocos intentos para más puntos!
+  Puedes elegir una categoría o inventar la tuya.
 
   {c('dim', 'Presiona Ctrl+C para salir en cualquier momento.')}
 """)
@@ -155,28 +200,27 @@ def main():
     total_score = 0
     round_num = 0
 
-    import random
-    random.shuffle(CATEGORIES)
+    while True:
+        category = choose_category()
+        if category is None:
+            break
 
-    for category in CATEGORIES:
         round_num += 1
         result = play_round(category, round_num)
 
-        if result is False:  # jugador salió
+        if result is False:
             break
 
         total_score += result if result else 0
 
         print(f"\n  {c('dim', f'Puntuación total: {total_score} puntos')}")
-
-        if round_num < len(CATEGORIES):
-            print(f"\n  {c('cyan', '¿Otra ronda? (Enter para continuar, q para salir)')} ", end="")
-            try:
-                choice = input().strip().lower()
-                if choice == 'q':
-                    break
-            except (EOFError, KeyboardInterrupt):
+        print(f"\n  {c('cyan', '¿Jugar otra ronda? (Enter para continuar, q para salir)')} ", end="")
+        try:
+            choice = input().strip().lower()
+            if choice == 'q':
                 break
+        except (EOFError, KeyboardInterrupt):
+            break
 
     print(f"""
 {c('bold', c('magenta', '━━━ JUEGO TERMINADO ━━━'))}

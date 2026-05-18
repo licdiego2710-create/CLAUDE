@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6D AntiGravity — Página Profesional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Canvas 3D de fondo -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Navegación -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-6d">6D</span>
+      <span class="logo-text">AntiGravity</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+      <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+      <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+      <li><a href="#contacto" class="nav-link">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- SECCIÓN HERO -->
+  <section id="inicio" class="section hero-section">
+    <div class="hero-content" id="hero-content">
+      <div class="hero-badge antigravity-float">6D · AntiGravity Studio</div>
+      <h1 class="hero-title">
+        <span class="line" data-depth="0.2">Diseño</span>
+        <span class="line gradient-text" data-depth="0.5">Sin Límites</span>
+        <span class="line" data-depth="0.8">en 6 Dimensiones</span>
+      </h1>
+      <p class="hero-subtitle">
+        Creatividad elevada más allá de la gravedad. Experiencias inmersivas,
+        diseño tridimensional y movimiento que desafía la física.
+      </p>
+      <div class="hero-cta">
+        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+        <a href="#contacto" class="btn btn-outline">Conectar</a>
+      </div>
+    </div>
+    <div class="hero-3d-object" id="hero-3d">
+      <div class="cube-wrapper" id="cube-wrapper">
+        <div class="cube">
+          <div class="face front">6D</div>
+          <div class="face back">AG</div>
+          <div class="face left">X·Y</div>
+          <div class="face right">Z·W</div>
+          <div class="face top">∞</div>
+          <div class="face bottom">◈</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SOBRE MÍ -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">Sobre <span class="gradient-text">Mí</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card card-3d" data-tilt>
+          <div class="about-avatar">
+            <div class="avatar-ring antigravity-float"></div>
+            <div class="avatar-core">
+              <span class="avatar-initials">6D</span>
+            </div>
+          </div>
+          <div class="about-info">
+            <h3>Diseñador & Desarrollador 6D</h3>
+            <p class="about-role">Especialista en AntiGravity UX/UI · Three.js · WebGL</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>
+            Con más de <strong>5 años de experiencia</strong> creando experiencias digitales
+            que trascienden las dos dimensiones, mi trabajo vive en el espacio entre
+            el diseño clásico y la física computacional.
+          </p>
+          <p>
+            Especializado en entornos <strong>6DOF</strong> (six degrees of freedom),
+            donde cada elemento puede rotar y trasladarse libremente en los 6 ejes
+            posibles: X, Y, Z, Pitch, Yaw y Roll.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number" data-target="50">0</span>+
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-label">Años Exp.</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="30">0</span>+
+              <span class="stat-label">Clientes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN HABILIDADES -->
+  <section id="habilidades" class="section skills-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">Habi<span class="gradient-text">lidades</span></h2>
+      </div>
+      <div class="skills-orbit" id="skills-orbit">
+        <div class="orbit-center">
+          <span>CORE</span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card card-3d antigravity-float" style="--delay:0s">
+            <div class="skill-icon">⬡</div>
+            <h4>Three.js / WebGL</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-card card-3d antigravity-float" style="--delay:0.3s">
+            <div class="skill-icon">◈</div>
+            <h4>6DOF Design</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-card card-3d antigravity-float" style="--delay:0.6s">
+            <div class="skill-icon">⬢</div>
+            <h4>React / Vue</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-card card-3d antigravity-float" style="--delay:0.9s">
+            <div class="skill-icon">◇</div>
+            <h4>Blender / 3D</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          </div>
+          <div class="skill-card card-3d antigravity-float" style="--delay:1.2s">
+            <div class="skill-icon">⬟</div>
+            <h4>GSAP / Motion</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
+          </div>
+          <div class="skill-card card-3d antigravity-float" style="--delay:1.5s">
+            <div class="skill-icon">◆</div>
+            <h4>Shader / GLSL</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PROYECTOS -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">Pro<span class="gradient-text">yectos</span></h2>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card card-3d" data-tilt>
+          <div class="project-visual" style="--accent:#00f5ff">
+            <div class="project-shape shape-1"></div>
+            <span class="project-tag">WebGL</span>
+          </div>
+          <div class="project-info">
+            <h3>AntiGravity Showroom</h3>
+            <p>Exposición virtual 3D con física de cuerpo rígido y partículas en tiempo real.</p>
+            <div class="project-tech">
+              <span>Three.js</span><span>CANNON.js</span><span>GLSL</span>
+            </div>
+            <a href="#" class="project-link">Ver proyecto →</a>
+          </div>
+        </article>
+
+        <article class="project-card card-3d featured" data-tilt>
+          <div class="project-visual" style="--accent:#7c3aed">
+            <div class="project-shape shape-2"></div>
+            <span class="project-tag featured-tag">Destacado</span>
+          </div>
+          <div class="project-info">
+            <h3>6D Motion Interface</h3>
+            <p>Interfaz de control 6DOF para navegación espacial inmersiva en XR.</p>
+            <div class="project-tech">
+              <span>WebXR</span><span>React</span><span>Three.js</span>
+            </div>
+            <a href="#" class="project-link">Ver proyecto →</a>
+          </div>
+        </article>
+
+        <article class="project-card card-3d" data-tilt>
+          <div class="project-visual" style="--accent:#f59e0b">
+            <div class="project-shape shape-3"></div>
+            <span class="project-tag">Blender</span>
+          </div>
+          <div class="project-info">
+            <h3>Zero-G Brand Identity</h3>
+            <p>Identidad visual para marca de tecnología aeroespacial con assets 3D.</p>
+            <div class="project-tech">
+              <span>Blender</span><span>GSAP</span><span>SVG</span>
+            </div>
+            <a href="#" class="project-link">Ver proyecto →</a>
+          </div>
+        </article>
+
+        <article class="project-card card-3d" data-tilt>
+          <div class="project-visual" style="--accent:#10b981">
+            <div class="project-shape shape-4"></div>
+            <span class="project-tag">R&D</span>
+          </div>
+          <div class="project-info">
+            <h3>Particle Physics UI</h3>
+            <p>Sistema de partículas reactivo al audio con simulación física en GPU.</p>
+            <div class="project-tech">
+              <span>WebGPU</span><span>WASM</span><span>Rust</span>
+            </div>
+            <a href="#" class="project-link">Ver proyecto →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">Con<span class="gradient-text">tacto</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-intro">
+            ¿Listo para llevar tu proyecto más allá de la gravedad?
+            Hablemos de ideas que desafíen lo convencional.
+          </p>
+          <div class="contact-items">
+            <div class="contact-item antigravity-float" style="--delay:0s">
+              <span class="contact-icon">✉</span>
+              <span>hola@6dantigravity.com</span>
+            </div>
+            <div class="contact-item antigravity-float" style="--delay:0.3s">
+              <span class="contact-icon">◎</span>
+              <span>Madrid, España · Remoto Global</span>
+            </div>
+            <div class="contact-item antigravity-float" style="--delay:0.6s">
+              <span class="contact-icon">◉</span>
+              <span>Disponible para proyectos</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link card-3d">GH</a>
+            <a href="#" class="social-link card-3d">LI</a>
+            <a href="#" class="social-link card-3d">TW</a>
+            <a href="#" class="social-link card-3d">BE</a>
+          </div>
+        </div>
+        <form class="contact-form card-3d" id="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Enviar Mensaje</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-6d">6D</span>
+        <span class="logo-text">AntiGravity</span>
+      </div>
+      <p class="footer-copy">© 2026 6D AntiGravity Studio · Diseñado sin gravedad</p>
+      <div class="footer-axes">
+        <span>X</span><span>Y</span><span>Z</span>
+        <span>Pitch</span><span>Yaw</span><span>Roll</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
